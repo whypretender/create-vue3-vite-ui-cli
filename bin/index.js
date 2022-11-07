@@ -49,10 +49,8 @@ async function query() {
   const answer = await inquirer.prompt(question);
 
   if (answer.operation === "退出") return;
-  console.log("answer.operation", answer.operation);
   const { default: op } = await import(
     `../lib/operations/${opt[answer.operation]}.js`
   );
-  console.log(op);
-  // await op();
+  await op();
 }
